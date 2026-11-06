@@ -1,0 +1,31 @@
+# Optional: copy to .github/workflows/pages.yml in the repository
+# that contains homepage/. For a dedicated website repository with index.html
+# at its root, use branch deployment as described in README.md instead.
+name: Deploy project homepage
+on:
+  push:
+    branches: [main]
+    paths: ['homepage/**', '.github/workflows/pages.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: homepage
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

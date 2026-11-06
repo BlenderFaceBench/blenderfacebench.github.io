@@ -1,0 +1,112 @@
+[
+  {
+    "model": "GPT-6 Astra (high)",
+    "easyF": 0.321,
+    "gain": 0.118,
+    "identity": 0.174,
+    "faceF": 0.411,
+    "faceGain": 0.2,
+    "defaultF": 0.084,
+    "defaultIdentity": -0.113,
+    "defaultFaceF": 0.132
+  },
+  {
+    "model": "Claude Opus 5.5 (high)",
+    "easyF": 0.297,
+    "gain": 0.087,
+    "identity": 0.145,
+    "faceF": 0.351,
+    "faceGain": 0.115,
+    "defaultF": 0.078,
+    "defaultIdentity": -0.12,
+    "defaultFaceF": 0.089
+  },
+  {
+    "model": "GPT-6 Astra (low)",
+    "easyF": 0.281,
+    "gain": 0.065,
+    "identity": 0.126,
+    "faceF": 0.358,
+    "faceGain": 0.126,
+    "defaultF": 0.103,
+    "defaultIdentity": -0.09,
+    "defaultFaceF": 0.139
+  },
+  {
+    "model": "Claude Opus 5.5 (none)",
+    "easyF": 0.277,
+    "gain": 0.061,
+    "identity": 0.12,
+    "faceF": 0.316,
+    "faceGain": 0.07,
+    "defaultF": 0.094,
+    "defaultIdentity": -0.101,
+    "defaultFaceF": 0.116
+  },
+  {
+    "model": "Claude Sonnet 5.5",
+    "easyF": 0.277,
+    "gain": 0.061,
+    "identity": 0.121,
+    "faceF": 0.317,
+    "faceGain": 0.07,
+    "defaultF": 0.097,
+    "defaultIdentity": -0.097,
+    "defaultFaceF": 0.103
+  },
+  {
+    "model": "GPT-6 Luna",
+    "easyF": 0.268,
+    "gain": 0.049,
+    "identity": 0.109,
+    "faceF": 0.309,
+    "faceGain": 0.06,
+    "defaultF": 0.082,
+    "defaultIdentity": -0.115,
+    "defaultFaceF": 0.113
+  },
+  {
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "easyF": 0.258,
+    "gain": 0.034,
+    "identity": 0.097,
+    "faceF": 0.277,
+    "faceGain": 0.011,
+    "defaultF": 0.055,
+    "defaultIdentity": -0.147,
+    "defaultFaceF": 0.073
+  },
+  {
+    "model": "GLM-5.3-Flash",
+    "easyF": 0.251,
+    "gain": 0.026,
+    "identity": 0.088,
+    "faceF": 0.276,
+    "faceGain": 0.013,
+    "defaultF": 0.067,
+    "defaultIdentity": -0.134,
+    "defaultFaceF": 0.086
+  },
+  {
+    "model": "Qwen3.8-27B",
+    "easyF": 0.245,
+    "gain": 0.019,
+    "identity": 0.082,
+    "faceF": 0.259,
+    "faceGain": -0.011,
+    "defaultF": 0.065,
+    "defaultIdentity": -0.136,
+    "defaultFaceF": 0.095
+  },
+  {
+    "model": "Gemini 3.5 Flash-Lite",
+    "easyF": 0.182,
+    "gain": -0.064,
+    "identity": 0.005,
+    "faceF": 0.208,
+    "faceGain": -0.08,
+    "defaultF": 0.054,
+    "defaultIdentity": -0.149,
+    "defaultFaceF": 0.027
+  }
+]
