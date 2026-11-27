@@ -46,3 +46,60 @@ function showPreview(id) {
 }
 for (const button of previewButtons) button.addEventListener('click', () => showPreview(button.dataset.preview));
 showPreview('ict-first');
+
+// Gentle one-time scroll-reveal for section blocks and card grids.
+(() => {
+ const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if (reducedMotion || !('IntersectionObserver' in window)) return;
+
+ const groups = [
+  ['.stats > div', 55],
+  ['.section-heading', 0],
+  ['.abstract, .paper-overview', 70],
+  ['.domains > article', 65],
+  ['.settings > article', 80],
+  ['.sample-gallery', 0],
+  ['.pipeline > li', 70],
+  ['.budget', 0],
+  ['.metric-grid > article', 70],
+  ['.trajectory-card', 65],
+  ['#results .result-toolbar, #results > .wrap > .table-container, #results .baselines', 70],
+  ['.findings > article', 70],
+  ['.resources-layout > div', 85]
+ ];
+
+ const targets = [];
+ for (const [selector, step] of groups) {
+  const nodes = document.querySelectorAll(selector);
+  nodes.forEach((node, index) => {
+   node.setAttribute('data-reveal', '');
+   if (step > 0 && index > 0) {
+    node.style.setProperty('--reveal-delay', `${Math.min(index, 4) * step}ms`);
+   }
+   targets.push(node);
+  });
+ }
+
+ const viewportH = window.innerHeight || document.documentElement.clientHeight;
+ const toObserve = [];
+ for (const node of targets) {
+  const rect = node.getBoundingClientRect();
+  if (rect.top < viewportH * 0.94) {
+   node.classList.add('is-visible');
+  } else {
+   toObserve.push(node);
+  }
+ }
+
+ document.documentElement.classList.add('reveal-ready');
+
+ const revealObserver = new IntersectionObserver(entries => {
+  for (const entry of entries) {
+   if (!entry.isIntersecting) continue;
+   entry.target.classList.add('is-visible');
+   revealObserver.unobserve(entry.target);
+  }
+ }, { threshold: 0.01, rootMargin: '0px 0px -7% 0px' });
+
+ for (const node of toObserve) revealObserver.observe(node);
+})();
